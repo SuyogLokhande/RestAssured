@@ -38,8 +38,8 @@ public class CommonStepDefinition {
 	public void getJoke() {
 		response = 
 				given()
-					.log()
-					.all()
+					//.log()
+					//.all()
 					.pathParam("endPath", endPath)
 					.when()
 					.get(apiEndPoint);

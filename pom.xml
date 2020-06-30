@@ -58,6 +58,14 @@
 		    <artifactId>xml-path</artifactId>
 		    <version>4.3.0</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-report-plugin -->
+		<dependency>
+		    <groupId>com.trivago.rta</groupId>
+		    <artifactId>cluecumber-report-plugin</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		
 
 	</dependencies>
 	<build>
@@ -72,6 +80,33 @@
                <encoding>UTF-8</encoding>
             </configuration>
          </plugin>
+         
+         <plugin>
+    		<groupId>com.trivago.rta</groupId>
+   			<artifactId>cluecumber-report-plugin</artifactId>
+    		<version>2.5.0</version>
+    		<executions>
+		        <execution>
+		            <id>report</id>
+		            <phase>post-integration-test</phase>
+		            <goals>
+		                <goal>reporting</goal>
+		            </goals>
+		        </execution>
+    		</executions>
+   			<configuration>
+        		<sourceJsonReportDirectory>./target/cucumber-reports</sourceJsonReportDirectory>
+        		<generatedHtmlReportDirectory>./target/cucumber-reports</generatedHtmlReportDirectory>
+        		<customPageTitle>API test Report</customPageTitle>
+        		<expandBeforeAfterHooks>true</expandBeforeAfterHooks>
+    			<expandStepHooks>true</expandStepHooks>
+        		<customParameters>
+       				<Custom_Parameter>Author: Suyog Lokhande</Custom_Parameter>
+        			<Custom_URL>LinkedIn: https://www.linkedin.com/in/suyoglokhande/</Custom_URL>
+        			<_Text>Please message me on LinkedIn if you like this github project!</_Text>
+    			</customParameters>
+    		</configuration>    
+		</plugin>
       </plugins>
    </build>
 </project>
